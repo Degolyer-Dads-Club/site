@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DeGolyer Dads Club//Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:DeGolyer Dads Club Events
+X-WR-CALDESC:Events and activities for the DeGolyer Elementary Dads Club
+
+BEGIN:VEVENT
+UID:2024-01-15T10:00:00Z-001@degolyer.org
+DTSTAMP:20240101T000000Z
+DTSTART:20240115T100000Z
+DTEND:20240115T120000Z
+SUMMARY:Dads Club Meeting
+DESCRIPTION:Monthly meeting of the DeGolyer Dads Club. All dads welcome!
+LOCATION:DeGolyer Elementary School
+END:VEVENT
+
+BEGIN:VEVENT
+UID:2024-02-10T09:00:00Z-002@degolyer.org
+DTSTAMP:20240101T000000Z
+DTSTART:20240210T090000Z
+DTEND:20240210T140000Z
+SUMMARY:Family Fun Day
+DESCRIPTION:Join us for a day of fun activities for the whole family!
+LOCATION:DeGolyer Elementary School
+END:VEVENT
+
+BEGIN:VEVENT
+UID:2024-03-20T18:00:00Z-003@degolyer.org
+DTSTAMP:20240101T000000Z
+DTSTART:20240320T180000Z
+DTEND:20240320T200000Z
+SUMMARY:Spring Fundraiser
+DESCRIPTION:Annual spring fundraiser to support school programs.
+LOCATION:DeGolyer Elementary School
+END:VEVENT
+
+END:VCALENDAR 
