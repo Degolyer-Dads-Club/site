@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+import dadsClubLogo from '../app/assets/dadsclublogo.png';
 
 interface LogoProps {
   variant?: 'default' | 'white' | 'compact';
@@ -6,44 +8,27 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ variant = 'default', className = '' }) => {
-  const getTextColor = () => {
+  const getLogoSize = () => {
     switch (variant) {
-      case 'white':
-        return 'text-white';
       case 'compact':
-        return 'text-teal-600';
+        return { width: 120, height: 60 };
       default:
-        return 'text-teal-600';
+        return { width: 200, height: 100 };
     }
   };
 
-  const getDadsClubColor = () => {
-    switch (variant) {
-      case 'white':
-        return 'text-teal-100';
-      case 'compact':
-        return 'text-teal-600';
-      default:
-        return 'text-teal-600';
-    }
-  };
+  const { width, height } = getLogoSize();
 
   return (
     <div className={`text-center ${className}`}>
-      {/* DeGOLYER - Large, bold, uppercase */}
-      <div className={`font-black text-2xl md:text-4xl lg:text-5xl ${getTextColor()} mb-1 tracking-tight`}>
-        DeGOLYER
-      </div>
-      
-      {/* ELEMENTARY - Medium weight, smaller, wider spacing */}
-      <div className={`font-medium text-sm md:text-base lg:text-lg ${getTextColor()} mb-2 tracking-[0.2em]`}>
-        ELEMENTARY
-      </div>
-      
-      {/* DADS CLUB - Bubbly, playful, prominent */}
-      <div className={`font-black text-3xl md:text-5xl lg:text-6xl ${getDadsClubColor()} leading-none tracking-wide`}>
-        DADS CLUB
-      </div>
+      <Image
+        src={dadsClubLogo}
+        alt="DeGolyer Elementary Dads Club Logo"
+        width={width}
+        height={height}
+        className="mx-auto"
+        priority
+      />
     </div>
   );
 };

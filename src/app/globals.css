@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Swiper CSS */
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
@@ -47,4 +52,14 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Gallery Modal - Force above everything */
+.gallery-modal {
+  position: fixed !important;
+  z-index: 999999 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
 }
