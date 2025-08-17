@@ -500,6 +500,177 @@ export default function Home() {
         </div>
       </section>
 
+
+
+      {/* Helpful Links Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Helpful Links</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Stay connected with our school community through these important resources and official channels.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-teal-100 rounded-lg p-6 mb-4">
+                <svg className="w-12 h-12 text-teal-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">School PTA</h3>
+              <p className="text-gray-600 mb-4">Connect with our Parent Teacher Association</p>
+              <a 
+                href="https://www.degolyerpta.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+              >
+                Visit PTA
+              </a>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-teal-100 rounded-lg p-6 mb-4">
+                <svg className="w-12 h-12 text-teal-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">School Website</h3>
+              <p className="text-gray-600 mb-4">Official DeGolyer Elementary website</p>
+              <a 
+                href="https://degolyer.dallasisd.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+              >
+                Visit School
+              </a>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-teal-100 rounded-lg p-6 mb-4">
+                <svg className="w-12 h-12 text-teal-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">School Calendar</h3>
+              <p className="text-gray-600 mb-4">Stay updated with school events</p>
+              <a 
+                href="https://degolyer.dallasisd.org/calendar21" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+              >
+                View Calendar
+              </a>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-teal-100 rounded-lg p-6 mb-4">
+                <svg className="w-12 h-12 text-teal-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">District Home</h3>
+              <p className="text-gray-600 mb-4">Dallas ISD official website</p>
+              <a 
+                href="https://www.dallasisd.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+              >
+                Visit District
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Leadership Team</h2>
+            <p className="text-gray-600">Meet the volunteers who make the Dads Club possible</p>
+          </div>
+          
+          {/* Board Members */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-teal-800 mb-6 text-center">Board Members</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Fermin Sanchez</h4>
+                <p className="text-teal-700 text-sm">President</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Justin Coppedge</h4>
+                <p className="text-teal-700 text-sm">Vice President</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Drew Klein</h4>
+                <p className="text-teal-700 text-sm">Secretary</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Kyle Bilton</h4>
+                <p className="text-teal-700 text-sm">Treasurer</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Chris Rigoulot</h4>
+                <p className="text-teal-700 text-sm">At Large (TAD)</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Jeff Attkisson</h4>
+                <p className="text-teal-700 text-sm">At Large (Auction)</p>
+              </div>
+              <div className="bg-teal-50 rounded-lg p-4 text-center border border-teal-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Taron Smith</h4>
+                <p className="text-teal-700 text-sm">At Large (Golf)</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Committee Chairs */}
+          <div>
+            <h3 className="text-2xl font-bold text-teal-800 mb-6 text-center">Committee Chairs</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Colin Felch</h4>
+                <p className="text-blue-700 text-sm">Health & Wellness Chair</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">David Wilborn</h4>
+                <p className="text-blue-700 text-sm">TAD Chair</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Zach Niehaus</h4>
+                <p className="text-blue-700 text-sm">Golf Chair</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Shane Batie</h4>
+                <p className="text-blue-700 text-sm">Golf Committee</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Dave Smith</h4>
+                <p className="text-blue-700 text-sm">Auction Chair</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Nathan Haley</h4>
+                <p className="text-blue-700 text-sm">Auction Committee</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Tim Guglielmo</h4>
+                <p className="text-blue-700 text-sm">Auction Committee</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Brad Hudnall</h4>
+                <p className="text-blue-700 text-sm">Recruitment Chair</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-teal-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
