@@ -1,27 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 
 // Modal component for gallery items
 const GalleryModal = ({ isOpen, onClose, item, type }: { 
   isOpen: boolean; 
   onClose: () => void; 
-  item: { src: string; alt: string }; 
+  item: { src: string; alt: string } | null; 
   type: 'image' | 'video'; 
 }) => {
-  if (!isOpen) return null;
+  if (!isOpen || !item) return null;
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4" 
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 gallery-modal" 
       style={{ 
         zIndex: 999999,
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
-        bottom: 0
+        bottom: 0,
+        transform: 'translateZ(0)'
       }}
     >
       <div className="relative max-w-4xl max-h-full">
@@ -60,6 +61,11 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState<{ src: string; alt: string } | null>(null);
   const [modalType, setModalType] = useState<'image' | 'video'>('image');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -710,54 +716,20 @@ export default function Home() {
           </div>
           <div className="border-t border-teal-700 mt-8 pt-8 text-center">
             <p className="text-teal-200">
-              © 2024 DeGolyer Elementary Dads Club. All rights reserved.
+              © 2025 DeGolyer Elementary Dads Club. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
       
       {/* Gallery Modal */}
-      {modalOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 gallery-modal" 
-          style={{ 
-            zIndex: 999999,
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            transform: 'translateZ(0)'
-          }}
-        >
-          <div className="relative max-w-4xl max-h-full">
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 z-10"
-            >
-              ×
-            </button>
-            <div className="bg-white rounded-lg overflow-hidden">
-              {modalType === 'video' ? (
-                <video 
-                  src={modalItem?.src}
-                  className="w-full h-auto max-h-[80vh]"
-                  controls
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              ) : (
-                <img 
-                  src={modalItem?.src}
-                  alt={modalItem?.alt}
-                  className="w-full h-auto max-h-[80vh] object-contain"
-                />
-              )}
-            </div>
-          </div>
-        </div>
+      {isClient && (
+        <GalleryModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          item={modalItem}
+          type={modalType}
+        />
       )}
     </div>
   );
