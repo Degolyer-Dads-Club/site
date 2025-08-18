@@ -57,14 +57,14 @@ const GalleryModal = ({ isOpen, onClose, item, type }: {
 };
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState<{ src: string; alt: string } | null>(null);
   const [modalType, setModalType] = useState<'image' | 'video'>('image');
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
   const toggleMenu = () => {
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
+        {mounted && isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-teal-700">
               <a href="#about" className="text-teal-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
@@ -160,11 +160,8 @@ export default function Home() {
             </div>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-            Supporting our school community through involvement, fundraising, and fun!
+            Supporting Degolyer Elementary school through involvement, fundraising, and fun!
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-teal-100">
-            Supporting our school community through involvement, fundraising, and fun!
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="https://degolyer.dallasisd.org/" 
@@ -307,7 +304,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">degolyerdads@gmail.com</p>
+                    <p className="text-gray-600">info@degolyerdads.org</p>
                   </div>
                 </div>
               </div>
@@ -377,11 +374,13 @@ export default function Home() {
             ].map((image, index) => (
               <div 
                 key={index} 
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+                className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${mounted ? 'cursor-pointer' : 'cursor-default'}`}
                 onClick={() => {
-                  setModalItem({ src: `/assets/${image}`, alt: `DeGolyer Dads Club Event ${index + 1}` });
-                  setModalType('image');
-                  setModalOpen(true);
+                  if (mounted) {
+                    setModalItem({ src: `/assets/${image}`, alt: `DeGolyer Dads Club Event ${index + 1}` });
+                    setModalType('image');
+                    setModalOpen(true);
+                  }
                 }}
               >
                 <div className="w-full h-48 overflow-hidden">
@@ -431,45 +430,32 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-teal-500 mx-auto"></div>
           </div>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-600 mb-8">
-              Stay up to date with all our events and activities. Download our calendar to your device!
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <div className="bg-teal-100 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
+                      <div className="max-w-4xl mx-auto text-center">
+              <p className="text-lg text-gray-600 mb-8">
+                Stay up to date with all our events and activities. Subscribe to our calendar or download the file to add events to your preferred calendar application.
+              </p>
+              <div className="max-w-2xl mx-auto">
+                <div className="bg-gray-50 p-8 rounded-lg">
+                  <div className="bg-teal-100 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Calendar Integration</h3>
+                  <p className="text-gray-600 mb-4">Add our events to your calendar</p>
+                  <div className="space-y-3">
+                    <a 
+                      href="https://calendar.google.com/calendar/ical/degolyerdads%40gmail.com/public/basic.ics" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition-colors"
+                    >
+                      Subscribe to Calendar
+                    </a>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Google Calendar</h3>
-                <p className="text-gray-600 mb-4">Add our events to your Google Calendar</p>
-                <a 
-                  href="/calendar.ics" 
-                  download
-                  className="inline-block bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition-colors"
-                >
-                  Download
-                </a>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <div className="bg-teal-100 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">iOS Calendar</h3>
-                <p className="text-gray-600 mb-4">Add our events to your iOS Calendar</p>
-                <a 
-                  href="/calendar.ics" 
-                  download
-                  className="inline-block bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition-colors"
-                >
-                  Download
-                </a>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -484,7 +470,7 @@ export default function Home() {
           </div>
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg text-gray-600 mb-8">
-              Our next auction will be held on Saturday, January 11, 2026 at the Sparkman Clubhouse. Join us for an exciting evening of bidding on amazing items and experiences!
+              Our next auction will be held on Saturday, April 11, 2026 at the Sparkman Clubhouse. Join us for an exciting evening of bidding on amazing items and experiences!
             </p>
             <div className="bg-teal-50 p-8 rounded-lg">
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -597,7 +583,7 @@ export default function Home() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Leadership Team</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Leadership Team 2025-2026</h2>
             <p className="text-gray-600">Meet the volunteers who make the Dads Club possible</p>
           </div>
           
@@ -723,7 +709,7 @@ export default function Home() {
       </footer>
       
       {/* Gallery Modal */}
-      {isClient && (
+      {mounted && (
         <GalleryModal
           isOpen={modalOpen}
           onClose={() => setModalOpen(false)}
